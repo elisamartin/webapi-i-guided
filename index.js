@@ -1,5 +1,25 @@
 const express = require('express');
+const db = require('./data/db');
 
+const server = express();
+
+server.use(express.json());
+
+server.get('/hubs', (req, res) => {
+	db.hubs
+		.find()
+		.then((data) => {
+			res.json(data);
+		})
+		.catch((error) => {
+			console.log('erroring');
+		});
+});
+
+server.listen(4000, () => console.log(`Listening on port 4000`));
+
+/*
+const express = require('express');
 const server = express();
 
 server.use(express.json());
@@ -28,3 +48,4 @@ server.post('/:name', (req, res) => {
 });
 
 server.listen(4000, () => console.log(`Listening on port 4000`));
+*/

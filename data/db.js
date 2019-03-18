@@ -35,14 +35,14 @@ let nextId = 6;
 
 function findHubs(filter) {
   const seconds = new Date().getSeconds();
-
-  // make it fail when seconds are odd
+ /*// make it fail when seconds are odd
   if (seconds % 2 === 1) {
     return Promise.reject({
       code: 500,
       message: 'Too late, try again!',
     });
-  }
+  } */
+  
 
   // if you pass a filter callback it will filter the results
   // try calling db.hubs.find(h => h.name === 'api-2') from a route handler
